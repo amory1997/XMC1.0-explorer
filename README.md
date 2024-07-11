@@ -1,6 +1,8 @@
 # XMC1.0-explorer
  the bin file is compiled with the e3-1230v2
  
+ NOTE: the bin file of xmcblocks only work on the intel cpu which released later than the year of 2015, which means the intel cpu shoud be newer than e3-1230v2
+		AMD cpu not work with bin file of xmcblocks in the repository
  the fold of nginx include the config file nginx/sites-available/default
  
  and ssl files which to ensure the website will work in the https way with the address of explorer.monero-classic.org
