@@ -7,6 +7,7 @@
  
  and ssl files which to ensure the website will work in the https way with the address of explorer.monero-classic.org
  
+ the ssl files is generate from cloudflare, shoud be update in about 90 days from 2024-06-03
  
  how to deploy for ubutnu 20.04:
  1 set monero-classic-v1 node: 
