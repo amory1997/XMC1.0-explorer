@@ -47,4 +47,16 @@
  
  
  
+ how to apply ssl file and keys from cloudflare and how to set on cloudflare
+ 1 log in cloudflare 
+ 
+ 2 Select the domain of monero-classic.org
+ 
+ 3 from the right side click the  SSL/TLS tab ,then operate as the images show below
+ 
+ ![image](https://github.com/amory1997/XMC1.0-explorer/tree/main/image/ssl-origin-server.png)
+ ![image](https://github.com/amory1997/XMC1.0-explorer/tree/main/image/ssl-origin-server2.png)
+ 4 put the two files to the server directory : /etc/nginx/ssl
+ 5 set how the cloudflare deal with ssl files 
+ ![image](https://github.com/amory1997/XMC1.0-explorer/tree/main/image/ssl-origin-server3.png)
  
