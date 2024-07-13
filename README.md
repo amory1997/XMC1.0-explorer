@@ -1,53 +1,59 @@
 # XMC1.0-explorer
- the bin file is compiled with the e3-1230v2
+ ## the bin file is compiled with the e3-1230v2
  
- NOTE: the bin file of xmcblocks only work on the intel cpu which released later than the year of 2015, which means the intel cpu shoud be newer than e3-1230v2
-		AMD cpu not work with bin file of xmcblocks in the repository
- the fold of nginx include the config file nginx/sites-available/default
- 
+ ## NOTE: 
+ - the bin file of xmcblocks only work on the intel cpu which released later than the year of 2015, which means the intel cpu shoud be newer than e3-1230v2
+ - AMD cpu not work with bin file of xmcblocks in the repository
+ - The fold of nginx include the config file nginx/sites-available/default
  and ssl files which to ensure the website will work in the https way with the address of explorer.monero-classic.org
  
- the ssl files is generate from cloudflare, shoud be update in about 90 days from 2024-06-03
+ - the ssl files is generate from cloudflare, shoud be update in about 90 days from 2024-06-03
  
- how to deploy for ubutnu 20.04:
+ ##how to deploy for ubutnu 20.04:
  1 set monero-classic-v1 node: 
  checkout the "BUILD YOUR OWN MONERO-CLASSIC V1.0 NODE" on https://monero-classic.org/
  
  2 run the node till it sync to the latest block, the whole process will take about 2 to 3 days.
  
- 3 sudo apt install nginx
+ 3 install nginx
+ ```
+ sudo apt install nginx
+ ```
+ 4 download all files for deploying and deploy
+```
+ git clone https://github.com/amory1997/XMC1.0-explorer.git
+
+ mv /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
  
- 4 git clone https://github.com/amory1997/XMC1.0-explorer.git
+ mv ~/XMC1.0-explorer/nginx/sites-available/default /etc/nginx/sites-available/
  
- 5 mv /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
+ mv ~/XMC1.0-explorer/nginx/ssl /etc/nginx/
  
- 6 mv ~/XMC1.0-explorer/nginx/sites-available/default /etc/nginx/sites-available/
+ cd XMC1.0-explorer 
  
- 7 mv ~/XMC1.0-explorer/nginx/ssl /etc/nginx/
+ chmod 777 xmcblocks
  
- 8 cd XMC1.0-explorer 
+ tial -f ~/.bitmoenroclassic/bitmoneroclassic.log 
+```
+ 5 check out if the blocks are synced 
+ ```
+ nohup ./xmcblocks -b ~/.bitmoneroclassic/lmdb/ --enable-pusher --enable-emission-monitor &
  
- 9 chmod 777 xmcblocks
- 
- 10 tial -f ~/.bitmoenroclassic/bitmoneroclassic.log 
-  check out if the blocks are synced 
-  
- 11 nohup ./xmcblocks -b ~/.bitmoneroclassic/lmdb/ --enable-pusher --enable-emission-monitor &
- 
- 12 tail -f nohub.out 
+ tail -f nohub.out 
+ ```
  wait till the block pop to the number of 1545999
  
- 13 go to you xmc1 node directory 
+ 6 go to you xmc1 node directory 
+ ```
+ ./moenroclassicd exit 
+ ```
+ 7 restart moneroclassicd by following the instruction on https://monero-classic.org/
  
- 14 ./moenroclassicd exit 
- 
- 15 restart moneroclassicd by following the instruction on https://monero-classic.org/
- 
- 16 wait till the bloks synced again 
+ 8 wait till the bloks synced again 
  
  
  
- how to apply ssl file and keys from cloudflare and how to set on cloudflare
+ ## how to apply ssl file and keys from cloudflare and how to set on cloudflare
  1 log in cloudflare 
  
  2 Select the domain of monero-classic.org
